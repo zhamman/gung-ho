@@ -1,25 +1,8 @@
 import React, { useEffect, useState } from "react";
-
 import "./App.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { VideoSlider } from "./media/videos/videoSlider";
-import About from "./Pages/Home/About";
-import Home from "./Pages/Home/Home";
-import Partners from "./Pages/Home/Partners";
-import Work from "./Pages/Home/Work";
-import Work2 from "./Pages/Home/Work2";
-import WorkPage from "./Pages/Work/WorkPage";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-  useLocation,
-} from "react-router-dom";
-import Contact from "./";
-import Video from "./Pages/Work/Video/Video";
-import AboutPage from "./Pages/About/AboutPage";
+import { BrowserRouter as Router } from "react-router-dom";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -28,10 +11,8 @@ const App = () => {
   const [preloader, setPreloader] = useState(true);
   let word1 = useRef(null);
   let word2 = useRef(null);
-  let dash = useRef(null);
   let sub = useRef(null);
   let preload = useRef(null);
-  let loadScreen = useRef(null);
 
   useEffect(() => {
     if (preloader === true) {
