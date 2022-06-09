@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    color: #000;
+    // #f9f2ed
+
+    &::before {
+      background: none;
+    }
+
+    &.no-scroll {
+      overflow-y: hidden;
+    }
+  }
+  a {
+    text-decoration: none;
+    // color: #fff;
+  }
+  li {
+    list-style: none;
+  }
+}
