@@ -1,29 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./Home.scss";
 import { VideoSlider } from "../../media/videos/videoSlider";
 import About from "./About";
 import Work2 from "./Work2";
 import Partners from "./Partners";
+import locomotiveScroll from "locomotive-scroll";
+import { useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Footer from "../../components/Footer";
 
 const Home = ({ slides }) => {
-  const scrollToPosition = (top = 0) => {
-    try {
-      window.scroll({
-        top: top,
-        left: 0,
-        behavior: "smooth",
-      });
-    } catch (_) {
-      window.scrollTo(0, top);
-    }
-  };
-
-  useEffect(() => {
-    scrollToPosition();
-  }, [useLocation().pathname]);
-
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
@@ -36,7 +23,12 @@ const Home = ({ slides }) => {
   }, 11500);
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.1 }}
+    >
       <div className="background-container">
         <div className="home-container">
           {VideoSlider.map((video, index) => {
@@ -48,11 +40,11 @@ const Home = ({ slides }) => {
                 {index == current && (
                   <div>
                     <video autoPlay muted loop src={video.src} />
-                    <div className="home-titles">
+                    <Link to={video.link} className="home-titles">
                       <p className="first">{video.name}</p>
                       <p className="second">{video.subhead}</p>
                       <p className="third">{video.director}</p>
-                    </div>
+                    </Link>
                   </div>
                 )}
               </div>
@@ -63,8 +55,8 @@ const Home = ({ slides }) => {
       <About />
       <Work2 />
       <Partners />
-      {/* <Footer /> */}
-    </div>
+      <Footer />
+    </motion.div>
   );
 };
 

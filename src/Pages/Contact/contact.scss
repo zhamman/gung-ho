@@ -1,0 +1,158 @@
+.contact-container {
+  height: 95vh;
+  display: flex;
+  width: 92vw;
+  margin: auto;
+  @media screen and (max-width: 950px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  @media screen and (max-height: 500px) {
+    height: auto;
+  }
+  .left-side {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: "Pilat Extended";
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    @media screen and (max-width: 1200px) {
+      font-size: 1.5rem;
+    }
+    @media screen and (max-width: 950px) {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      justify-content: center;
+      margin-top: 200px;
+      text-align: center;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 0.8rem;
+      margin-top: 140px;
+    }
+    @media screen and (max-width: 450px) {
+      margin-top: 100px;
+    }
+    @media screen and (max-height: 500px) {
+      margin-top: 80px;
+    }
+  }
+  .right-side {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-container {
+      width: 80%;
+      margin-top: 8rem;
+      @media screen and (max-width: 950px) {
+        margin-top: 2rem;
+        width: 70%;
+      }
+      @media screen and (max-width: 650px) {
+        margin-top: 2rem;
+        width: 80%;
+      }
+      .success-message {
+        font-family: "Pilat Extended Book";
+        text-align: center;
+        line-height: 2;
+        margin-top: -7rem;
+      }
+
+      .register-form {
+        .form-group {
+          margin-top: 1rem;
+          @media screen and (max-width: 950px) {
+            margin-top: 0.5rem;
+          }
+          span {
+            color: red;
+            font-size: 0.6rem;
+          }
+          label {
+            font-size: 0.8rem;
+            @media screen and (max-width: 500px) {
+              font-size: 0.6rem;
+              text-align: left;
+            }
+          }
+          input {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 2px solid;
+            padding: 0.5rem;
+            font-family: "Pilat Extended Book";
+            &:focus {
+              border-color: none;
+              outline: none;
+            }
+          }
+          textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            background: none;
+            border-bottom: 2px solid;
+            font-family: "Pilat Extended Book";
+            &:focus {
+              border-color: none;
+              outline: none;
+            }
+          }
+        }
+        .submit {
+          input {
+            cursor: pointer;
+            width: 30%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2.5rem auto;
+            border: 2px solid;
+            background: none;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            font-family: "Pilat Extended Book";
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            &:hover {
+              transform: scale(1.1);
+              background-color: black;
+              color: white;
+            }
+            @media screen and (max-width: 500px) {
+              font-size: 0.6rem;
+              height: 80px;
+              width: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.contact-copyright {
+  height: 5vh;
+  width: 92vw;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.5rem;
+  font-size: 0.6rem;
+}

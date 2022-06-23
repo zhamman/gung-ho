@@ -1,0 +1,78 @@
+.partnerPage-container {
+  width: 80%;
+  max-width: 1330px;
+  min-height: 90vh;
+  margin: auto;
+  margin-top: 100px;
+  letter-spacing: 1px;
+  @media screen and (max-width: 1080px) {
+    width: 80%;
+  }
+  .partner-title {
+    text-transform: uppercase;
+    font-family: "Pilat Extended";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 850px) {
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 700px) {
+      font-size: 0.6rem;
+    }
+    @media screen and (max-width: 550px) {
+      font-size: 0.4rem;
+    }
+  }
+  .partner-description {
+    margin: 2rem 0;
+    text-align: center;
+    @media screen and (max-width: 850px) {
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 700px) {
+      font-size: 0.6rem;
+    }
+  }
+  .partners {
+    width: 80%;
+    margin: 3rem auto;
+    font-family: "Pilat Extended Book";
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 3;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    text-align: center;
+    @media screen and (max-width: 1080px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 950px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 850px) {
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 700px) {
+      font-size: 0.6rem;
+    }
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+    }
+    .col1 {
+      // text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .col2 {
+      //   text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+}

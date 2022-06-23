@@ -5,47 +5,66 @@ import { useLocation } from "react-router-dom";
 import "./Video.scss";
 import { ImageSelect } from "./ImageSelect";
 import { VscArrowSmallRight, VscArrowSmallLeft } from "react-icons/vsc";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
+import gsap from "gsap";
 
 const Video = () => {
-  //   let { id } = useParams();
   return (
-    <div className="video-container ">
-      <div className="video-section">
-        {useLocation().pathname == "/work/adidas1" && <Adidas1 />}
-        {useLocation().pathname == "/work/better-late-than-never" && (
-          <BetterLate />
-        )}
-        {useLocation().pathname == "/work/amazing-race" && <AmazingRace />}
-        {useLocation().pathname == "/work/her" && <Her />}
-        {useLocation().pathname == "/work/inconvenient-truth" && (
-          <InconvenientTruth />
-        )}
-        {useLocation().pathname == "/work/ipad" && <Ipad />}
-        {useLocation().pathname == "/work/samsung" && <Samsung />}
-        {useLocation().pathname == "/work/richkids" && <RichKids />}
-        {useLocation().pathname == "/work/snowden" && <Snowden />}
-        {useLocation().pathname == "/work/who-do-you-think-you-are" && (
-          <WhoDoYou />
-        )}
-        {useLocation().pathname == "/work/cisco" && <Cisco />}
-        {useLocation().pathname == "/work/citibank" && <CitiBank />}
-        {useLocation().pathname == "/work/xbox" && <Xbox />}
-        {useLocation().pathname == "/work/pandg" && <PandG />}
-        {useLocation().pathname == "/work/adidas-billion" && <AdidasBillion />}
-        {useLocation().pathname == "/work/adidas-original" && (
-          <AdidasOriginals />
-        )}
-        {useLocation().pathname == "/work/vodafone" && <Vodafone />}
-        {useLocation().pathname == "/work/lotto-red" && <LottoRed />}
-        {useLocation().pathname == "/work/vogue" && <Vogue />}
-        {useLocation().pathname == "/work/annie" && <AnnieLieb />}
-        {useLocation().pathname == "/work/dior" && <LadyDior />}
-        {useLocation().pathname == "/work/pirelli" && <Pirelli />}
-      </div>
-      <div className="next-selection">
-        <WorkPage />
-      </div>
-    </div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 0.3 }}
+        className="video-container"
+      >
+        <div className="video-section">
+          {useLocation().pathname == "/work/adidas1" && <Adidas1 />}
+          {useLocation().pathname == "/work/better-late-than-never" && (
+            <BetterLate />
+          )}
+          {useLocation().pathname == "/work/amazing-race" && <AmazingRace />}
+          {useLocation().pathname == "/work/her" && <Her />}
+          {useLocation().pathname == "/work/inconvenient-truth" && (
+            <InconvenientTruth />
+          )}
+          {useLocation().pathname == "/work/ipad" && <Ipad />}
+          {useLocation().pathname == "/work/samsung" && <Samsung />}
+          {useLocation().pathname == "/work/richkids" && <RichKids />}
+          {useLocation().pathname == "/work/snowden" && <Snowden />}
+          {useLocation().pathname == "/work/who-do-you-think-you-are" && (
+            <WhoDoYou />
+          )}
+          {useLocation().pathname == "/work/cisco" && <Cisco />}
+          {useLocation().pathname == "/work/citibank" && <CitiBank />}
+          {useLocation().pathname == "/work/xbox" && <Xbox />}
+          {useLocation().pathname == "/work/pandg" && <PandG />}
+          {useLocation().pathname == "/work/adidas-billion" && (
+            <AdidasBillion />
+          )}
+          {useLocation().pathname == "/work/adidas-original" && (
+            <AdidasOriginals />
+          )}
+          {useLocation().pathname == "/work/vodafone" && <Vodafone />}
+          {useLocation().pathname == "/work/lotto-red" && <LottoRed />}
+          {useLocation().pathname == "/work/vogue" && <Vogue />}
+          {useLocation().pathname == "/work/annie" && <AnnieLieb />}
+          {useLocation().pathname == "/work/dior" && <LadyDior />}
+          {useLocation().pathname == "/work/pirelli" && <Pirelli />}
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.1 }}
+          className="next-selection"
+        >
+          <WorkPage />
+        </motion.div>
+      </motion.div>
+      //{" "}
+    </AnimatePresence>
   );
 };
 
