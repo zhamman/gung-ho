@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import { useRef } from "react";
 import gsap from "gsap";
+import locomotiveScroll from "locomotive-scroll";
 
 const App = () => {
   const [preloader, setPreloader] = useState(true);
@@ -13,6 +14,7 @@ const App = () => {
   let word2 = useRef(null);
   let sub = useRef(null);
   let preload = useRef(null);
+  // let location = useLocation();
 
   useEffect(() => {
     if (preloader === true) {
@@ -76,26 +78,30 @@ const App = () => {
   });
 
   return (
-    <>
-      <div className="loader-container" ref={el => (loadScreen = el)}>
-        <div className="loader-wrapper absolute" ref={el => (preload = el)}>
-          <h1>
-            {" "}
-            <span ref={el => (word1 = el)}>Gung</span>
-            <span ref={el => (word2 = el)}>-Ho</span>{" "}
-          </h1>
-          <h4 ref={el => (sub = el)}>Films</h4>
+    <div>
+      <div>
+        <div className="loader-container">
+          <div className="loader-wrapper absolute" ref={el => (preload = el)}>
+            <h1>
+              {" "}
+              <span ref={el => (word1 = el)}>Gung</span>
+              <span ref={el => (word2 = el)}>-Ho</span>{" "}
+            </h1>
+            <h4 ref={el => (sub = el)}>Films</h4>
+          </div>
+        </div>
+
+        <div className="app-container">
+          <div className="app-scroll">
+            <Router>
+              <Header />
+              <AnimatedRoutes />
+              {/* <Footer /> */}
+            </Router>
+          </div>
         </div>
       </div>
-
-      <div className="app-container">
-        <Router>
-          <Header />
-          <AnimatedRoutes />
-          <Footer />
-        </Router>
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,25 @@
+.filter-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    cursor: pointer;
+    border: none;
+    border-right: 1px solid black;
+    background: none;
+    padding: 0 2rem;
+    font-family: "Pilat Extended Book";
+    &:last-child {
+      border: none;
+    }
+    &:hover {
+      color: red;
+    }
+    &.active {
+      color: red;
+    }
+  }
+}

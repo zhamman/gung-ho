@@ -9,15 +9,16 @@
   margin-top: 10rem;
 
   .about-header {
-    font-size: 1.65rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
+    text-transform: uppercase;
     color: #c20c18;
     text-align: center;
     font-family: "Pilat Extended book";
     @media screen and (max-width: 768px) {
       font-size: 1.3rem;
     }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 500px), screen and (max-height: 500px) {
       font-size: 1rem;
     }
   }
@@ -26,7 +27,7 @@
       width: 80%;
       max-width: 1330px;
       margin: auto;
-      font-family: "Pilat Extended";
+      font-family: "Pilat Extended Book";
       @media screen and (max-width: 768px) {
         width: 80%;
       }
@@ -39,7 +40,7 @@
         @media screen and (max-width: 768px) {
           font-size: 1rem;
         }
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 500px), screen and (max-height: 500px) {
           font-size: 0.8rem;
         }
       }

@@ -43,22 +43,6 @@ const Header = () => {
     window.addEventListener("scroll", changeColor);
   });
 
-  // useEffect(() => {
-  //   gsap.to([tran1, tran2], {
-  //     duration: 0.8,
-  //     height: 0,
-  //     ease: "power3.inOut",
-  //     stagger: {
-  //       amount: 0.07,
-  //     },
-  //   });
-  //   gsap.to(menu, {
-  //     duration: 1,
-  //     css: { display: "none" },
-  //   });
-  //   staggerReaveal(tran1, tran2);
-  // }, [useLocation().pathname]);
-
   useEffect(() => {
     disableMenu();
     if (active.clicked === false) {
@@ -75,6 +59,10 @@ const Header = () => {
         duration: 1,
         css: { display: "none" },
       });
+
+      gsap.to([line1, line2, line3, line4], {
+        opacity: 0,
+      });
     } else if (
       active.clicked === true ||
       (active.clicked === true && active.initial === null)
@@ -87,6 +75,9 @@ const Header = () => {
         duration: 0,
         opacity: 1,
         height: "100%",
+      });
+      gsap.to([line1, line2, line3, line4], {
+        opacity: 1,
       });
       staggerReaveal(revealMenu);
       staggerText(line1, line2, line3, line4);
@@ -129,14 +120,14 @@ const Header = () => {
       duration: 0.4,
       height: 0,
       transformOrigin: "right top",
-      skewY: 4,
+      // skewY: 4,
       ease: "power3.inOut",
     });
   };
   const staggerText = (node1, node2, node3, node4) => {
     gsap.from([node1, node2, node3, node4], {
-      duration: 0.8,
-      x: -1000,
+      duration: 0.6,
+      x: -10000,
       delay: 0.2,
       ease: "power3.inOut",
       stagger: {
@@ -152,10 +143,21 @@ const Header = () => {
     }, 1000);
   };
 
+  const onEnter = ({ currentTarget }) => {
+    gsap.to(currentTarget, {
+      duration: 0.2,
+      scale: 1.12,
+    });
+  };
+  const onLeave = ({ currentTarget }) => {
+    gsap.to(currentTarget, {
+      duration: 0.2,
+      scale: 1,
+    });
+  };
+
   return (
     <header>
-      {/* <div className="transition-layer" ref={el => (tran1 = el)}></div>
-      <div className="transition-layer2" ref={el => (tran2 = el)}></div> */}
       <div
         className="header"
         style={{
@@ -215,9 +217,11 @@ const Header = () => {
           <div className="links-container">
             <div className="prod-section">
               <Link
-                to="/"
+                to="/partners"
                 onClick={() => setActive({ clicked: false })}
                 ref={el => (line1 = el)}
+                onMouseEnter={onEnter}
+                onMouseLeave={onLeave}
               >
                 Production <div /> Partners
               </Link>
@@ -229,23 +233,29 @@ const Header = () => {
                   setActive({ clicked: false });
                 }}
                 ref={el => (line2 = el)}
+                onMouseEnter={onEnter}
+                onMouseLeave={onLeave}
               >
                 Work
               </Link>
             </div>
             <div className="company-section">
               <Link
-                to="/"
+                to="/about"
                 onClick={() => setActive({ clicked: false })}
                 ref={el => (line3 = el)}
+                onMouseEnter={onEnter}
+                onMouseLeave={onLeave}
               >
                 About
               </Link>
 
               <Link
-                to="/"
+                to="/contact"
                 onClick={() => setActive({ clicked: false })}
                 ref={el => (line4 = el)}
+                onMouseEnter={onEnter}
+                onMouseLeave={onLeave}
               >
                 Contact
               </Link>

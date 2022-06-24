@@ -3,106 +3,124 @@ import "./WorkPage.scss";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
+import gsap from "gsap";
+import { motion, AnimatePresence } from "framer-motion";
+import Footer from "../../components/Footer";
 
 const WorkPage = () => {
   const [render, setRender] = useState("allWork");
-  const [active, setActive] = useState(false);
-
-  const scrollToPosition = (top = 0) => {
-    try {
-      window.scroll({
-        top: top,
-        left: 0,
-        behavior: "smooth",
-        delay: 0.5,
-      });
-    } catch (_) {
-      window.scrollTo(0, top);
-    }
-  };
+  const location = useLocation().pathname;
 
   useEffect(() => {
-    scrollToPosition();
-  }, [useLocation().pathname]);
+    gsap.from(".block", {
+      duration: 1,
+      scale: 0,
+      delay: 0.1,
+      ease: "power3.inOut",
+      stagger: {
+        amount: 0.8,
+      },
+    });
+  }, [render]);
 
   return (
-    <div className="workpage-container">
-      {useLocation().pathname == "/work" && (
-        <div className="heading">
-          <h1>
-            OUR WORKS <FiArrowDownLeft />
-          </h1>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="workpage-container">
+        {(location === "/work" || location === "/") && (
+          <div className="heading">
+            <h1>
+              OUR WORKS <FiArrowDownLeft />
+            </h1>
+          </div>
+        )}
+
+        <div className="work-nav">
+          <ul>
+            <li
+              onClick={() => {
+                setRender("allWork");
+              }}
+              style={{
+                color: render === "allWork" ? "#c31c28" : "",
+              }}
+            >
+              All Work
+            </li>
+            <li
+              onClick={() => {
+                setRender("tvCommercial");
+              }}
+              style={{
+                color: render === "tvCommercial" ? "#c31c28" : "",
+              }}
+            >
+              TV Commercials
+            </li>
+            <li
+              onClick={() => {
+                setRender("television");
+              }}
+              style={{
+                color: render === "television" ? "#c31c28" : "",
+              }}
+            >
+              Television
+            </li>
+            <li
+              onClick={() => {
+                setRender("documentary");
+              }}
+              style={{
+                color: render === "documentary" ? "#c31c28" : "",
+              }}
+            >
+              Documentary
+            </li>
+
+            <li
+              onClick={() => {
+                setRender("featureFilm");
+              }}
+              style={{
+                color: render === "featureFilm" ? "#c31c28" : "",
+              }}
+            >
+              Feature Films
+            </li>
+            <li
+              onClick={() => {
+                setRender("photography");
+              }}
+              style={{
+                color: render === "photography" ? "#c31c28" : "",
+              }}
+            >
+              Photography
+            </li>
+          </ul>
         </div>
-      )}
 
-      <div className="work-nav">
-        <ul>
-          <li
-            onClick={() => setRender("allWork")}
-            style={{
-              color: render === "allWork" ? "#c31c28" : "",
-            }}
-          >
-            All Work
-          </li>
-          <li
-            onClick={() => setRender("tvCommercial")}
-            style={{
-              color: render === "tvCommercial" ? "#c31c28" : "",
-            }}
-          >
-            TV Commercials
-          </li>
-          <li
-            onClick={() => setRender("television")}
-            style={{
-              color: render === "television" ? "#c31c28" : "",
-            }}
-          >
-            Television
-          </li>
-          <li
-            onClick={() => setRender("documentary")}
-            style={{
-              color: render === "documentary" ? "#c31c28" : "",
-            }}
-          >
-            Documentary
-          </li>
-
-          <li
-            onClick={() => setRender("featureFilm")}
-            style={{
-              color: render === "featureFilm" ? "#c31c28" : "",
-            }}
-          >
-            Feature Films
-          </li>
-          <li
-            onClick={() => setRender("photography")}
-            style={{
-              color: render === "photography" ? "#c31c28" : "",
-            }}
-          >
-            Photography
-          </li>
-        </ul>
+        <div className="render-container">
+          {render === "featureFilm" && <FeatureFilm />}
+          {render === "tvCommercial" && <TvCommercials />}
+          {render === "documentary" && <Documentary />}
+          {render === "photography" && <Photography />}
+          {render === "television" && <Television />}
+          {render === "allWork" && <AllWork />}
+        </div>
       </div>
-      {render === "featureFilm" && <FeatureFilm />}
-      {render === "tvCommercial" && <TvCommercials />}
-      {render === "documentary" && <Documentary />}
-      {render === "photography" && <Photography />}
-      {render === "television" && <Television />}
-      {render === "allWork" && <AllWork />}
-    </div>
+      <Footer />
+    </motion.div>
   );
 };
 
 export default WorkPage;
 
 const FeatureFilm = () => {
-  // const film = useRef(null);
-
   return (
     <div className="work-col">
       <Link to="/work/her" className="block">

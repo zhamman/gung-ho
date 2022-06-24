@@ -1,13 +1,14 @@
 import React from "react";
 import "./Partners.scss";
+import { Link } from "react-router-dom";
 
 const Partners = () => {
   return (
     <div className="partner-container">
-      <div className="partners-headers">
+      <Link to="/partners" className="partners-headers">
         <h1>Partners</h1>
         <p>Some of Our Production Partners</p>
-      </div>
+      </Link>
       <div className="logo-container">
         <div className="row">
           <div className="box">

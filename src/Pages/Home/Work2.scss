@@ -3,28 +3,27 @@
   padding: 0px 4rem;
   padding-top: 160px;
   padding-bottom: 80px;
-  @media screen and (max-width: 768px) {
-    padding: 160px 0.5rem;
+  text-transform: uppercase;
+  @media screen and (max-width: 1080px) {
+    padding: 160px 0rem;
   }
-  @media screen and (max-width: 500px) {
-    padding: 100px 0.5rem;
+  @media screen and (max-width: 500px), screen and (max-height: 500px) {
+    padding: 50px 0.5rem;
   }
 
   .heading {
-    font-size: 1.2rem;
+    // font-size: 1.1rem;
     text-align: center;
     margin-bottom: 2rem;
     padding: 0 8px;
     h1 {
       font-family: "Pilat Extended";
-      -webkit-text-stroke: 1.7px #000;
-      -webkit-text-fill-color: transparent;
       color: black;
     }
     @media screen and (max-width: 1080px) {
       font-size: 1rem;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px), screen and (max-height: 500px) {
       font-size: 0.8rem;
       margin-bottom: 1rem;
     }
@@ -49,7 +48,7 @@
       color: #000;
       z-index: 4;
       overflow: hidden;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 650px) {
         width: 100%;
         margin-bottom: 0px;
         padding: 0.8rem 8px;
@@ -69,18 +68,24 @@
         align-items: center;
         font-family: "Pilat Extended Book";
         h2 {
-          font-size: 1rem;
+          font-size: 0.8rem;
           transition: all 0.3s ease-in-out;
 
-          @media screen and (max-width: 768px) {
-            font-size: 0.7rem;
+          @media screen and (max-width: 850px) {
+            font-size: 0.6rem;
+          }
+          @media screen and (max-width: 768px), screen and (max-height: 500px) {
+            font-size: 0.5rem;
           }
         }
         p {
           color: rgb(160, 158, 158);
-          font-size: 0.8rem;
-          @media screen and (max-width: 768px) {
-            font-size: 0.5rem;
+          font-size: 0.6rem;
+          @media screen and (max-width: 850px) {
+            font-size: 0.4rem;
+          }
+          @media screen and (max-width: 768px), screen and (max-height: 500px) {
+            font-size: 0.3rem;
           }
         }
       }
@@ -128,6 +133,16 @@
         transform: scale(1.1);
         background-color: #000;
         color: #fff;
+      }
+      @media screen and (max-width: 768px), screen and (max-height: 500px) {
+        height: 110px;
+        width: 110px;
+        font-size: 12px;
+      }
+      @media screen and (max-width: 500px) {
+        height: 90px;
+        width: 90px;
+        font-size: 10px;
       }
     }
   }

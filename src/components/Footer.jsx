@@ -1,6 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Footer.scss";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { useState } from "react";
 
 const Footer = () => {
   return (
@@ -9,14 +12,14 @@ const Footer = () => {
         <div className="nav-section">
           <ul>
             <Link to="/work">Work</Link>
-            <Link to="/">Partners</Link>
+            <Link to="/partners">Partners</Link>
             <Link to="/about"> About </Link>
-            <Link to="/">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </ul>
         </div>
         <div className="email-section">
           <p>Interested in working with us?</p>
-          <a href="/" className="underline">
+          <a href="mailto:zhamman14@gmail.com" className="underline">
             Shoot us an email
           </a>
         </div>

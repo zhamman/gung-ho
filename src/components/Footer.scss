@@ -1,19 +1,28 @@
 .footer-container {
-  height: 40vh;
+  height: 25vh;
   background-color: #1e1e1e;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  @media screen and (max-height: 500px) {
+    height: 50vh;
+  }
+  @media screen and (max-height: 500px) {
+    font-size: 0.7rem;
+  }
+  // margin-top: 2rem;
   .content-container {
     margin: auto;
     text-align: center;
     @media screen and (max-width: 768px) {
-      font-size: 14px;
+      font-size: 12px;
     }
     @media screen and (max-width: 500px) {
-      font-size: 10px;
+      font-size: 8px;
+    }
+    @media screen and (max-height: 300px) {
+      display: none;
     }
     .nav-section {
       ul {
@@ -36,17 +45,11 @@
             padding: 0 0.2rem;
             font-size: 8px;
           }
-          // @media screen and (max-width: 510px) {
-          //   font-size: 6px;
-          // }
-          // @media screen and (max-width: 768px) {
-          //   font-size: 12px;
-          // }
         }
       }
     }
     .email-section {
-      margin-top: 3rem;
+      margin-top: 1.5rem;
       .underline {
         text-decoration: underline;
         color: #c31c28;
@@ -54,9 +57,15 @@
           color: rgb(255, 117, 117);
         }
       }
+      @media screen and (max-height: 500px) {
+        margin-top: 1.5rem;
+      }
     }
     .copyright {
-      margin-top: 3rem;
+      margin-top: 1.5rem;
+      @media screen and (max-height: 500px) {
+        margin-top: 1.5rem;
+      }
     }
   }
 }
