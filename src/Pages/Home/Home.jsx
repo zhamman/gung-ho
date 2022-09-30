@@ -39,7 +39,7 @@ const Home = ({ slides }) => {
               >
                 {index == current && (
                   <div>
-                    <video autoPlay muted loop src={video.src} />
+                    <video autoPlay playsInline muted loop src={video.src} />
                     <Link to={video.link} className="home-titles">
                       <p className="first">{video.name}</p>
                       <p className="second">{video.subhead}</p>
