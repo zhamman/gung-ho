@@ -86,7 +86,7 @@
       cursor: pointer;
       &:hover .text {
         visibility: visible;
-        scale: 1.3;
+        scale: 1;
       }
       &:hover img {
         filter: brightness(30%);
@@ -106,17 +106,18 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -70%);
+        transform: translate(-50%, -50%);
         transition: all 0.2s ease;
         width: 100%;
         text-align: center;
         z-index: 3;
+        font-size: 0.9vw;
         @media screen and (max-width: 768px) {
           position: absolute;
           visibility: hidden;
         }
         &:hover img {
-          transform: scale(1.1);
+          transform: scale(1.4);
         }
       }
       .image-hover-zoom {
