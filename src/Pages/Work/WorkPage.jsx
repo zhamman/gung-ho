@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./WorkPage.scss";
 import { FiArrowDownLeft } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import Header from "../../components/Header";
 import gsap from "gsap";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Footer from "../../components/Footer";
 
 const WorkPage = () => {
