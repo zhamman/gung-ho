@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import { useRef } from "react";
 import gsap from "gsap";
-import locomotiveScroll from "locomotive-scroll";
 
 const App = () => {
   const [preloader, setPreloader] = useState(true);
+
   let word1 = useRef(null);
   let word2 = useRef(null);
   let sub = useRef(null);
@@ -39,7 +38,6 @@ const App = () => {
         duration: 0.4,
         opacity: 0,
       });
-      // slideUp(word1);
     }
   });
 
@@ -59,15 +57,6 @@ const App = () => {
       height: 0,
       stagger: 0.4,
       duration: 1.5,
-    });
-  };
-
-  const slideUp = el1 => {
-    gsap.from(el1, {
-      opacity: 0,
-      y: -1000,
-      stagger: 0.2,
-      duration: 0.3,
     });
   };
 
@@ -96,7 +85,6 @@ const App = () => {
             <Router>
               <Header />
               <AnimatedRoutes />
-              {/* <Footer /> */}
             </Router>
           </div>
         </div>

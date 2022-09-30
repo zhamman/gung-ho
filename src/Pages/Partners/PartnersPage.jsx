@@ -13,8 +13,6 @@ const PartnersPage = () => {
       window.scroll({
         top: top,
         left: 0,
-        // behavior: "smooth",
-        // delay: 0.5,
       });
     } catch (_) {
       window.scrollTo(0, top);
