@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.scss";
-import { useEffect } from "react";
 
 const Contact = () => {
   const [values, setValues] = useState({
