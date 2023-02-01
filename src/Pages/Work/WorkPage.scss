@@ -1,6 +1,8 @@
 .workpage-container {
   min-height: 100vh;
   padding-top: 80px;
+  max-width: 2400px;
+  margin: auto;
   @media screen and (max-width: 768px) {
     padding-top: 40px;
     margin-bottom: 2rem;
@@ -65,6 +67,7 @@
     width: 100%;
     padding: 0 32px;
     padding-bottom: 2.5rem;
+    padding-top: 2rem;
     box-sizing: border-box;
     @media screen and (max-width: 768px) {
       padding: 0 16px;

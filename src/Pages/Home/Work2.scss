@@ -1,8 +1,10 @@
 .work-container {
   min-height: 100vh;
+  max-width: 2400px;
+  margin: auto;
   padding: 0px 4rem;
   padding-top: 160px;
-  padding-bottom: 80px;
+  padding-bottom: 160px;
   text-transform: uppercase;
   @media screen and (max-width: 1080px) {
     padding: 160px 0rem;

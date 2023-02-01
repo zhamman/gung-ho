@@ -25,16 +25,16 @@ const AboutPage = () => {
             Gung-Ho Films is the leading production services company in China
             and Hong Kong. Founded in 2001, Gung-Ho Films has consistently
             provided high-quality support to top film and TV production
-            companies from around the world.
+            companies from around the world. Gung-Ho Films is extremely
+            privileged to have worked with many award-winning directors,
+            cinematographers,
           </p>
           <div className="sub-text">
             <p className="p2">
-              Gung-Ho Films is extremely privileged to have worked with many
-              award-winning directors, cinematographers, and photographers,
-              including Alejandro Iñárritu, Spike Jonze, Oliver Stone, Davis
-              Guggenheim, Rupert Sanders, Lance Acord, Louis CK, Emmanuel
-              Lebeski, Wally Pfister, Claudio Miranda, Mario Testino, Annie
-              Liebovitz, Patrick Demarchelier, etc.
+              and photographers, including Alejandro Iñárritu, Spike Jonze,
+              Oliver Stone, Davis Guggenheim Rupert Sanders, Lance Acord, Louis
+              CK, Emmanuel Lebeski, Wally Pfister, Claudio Miranda, Mario
+              Testino, Annie Liebovitz, Patrick Demarchelier, etc.
             </p>
             <p>
               With a smart and dedicated bilingual staff, Gung-Ho provides
