@@ -1,5 +1,5 @@
 .about-container {
-  min-height: 50vh;
+  min-height: 100vh;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
   .about-header {
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     text-transform: uppercase;
     color: #c20c18;
     text-align: center;
@@ -24,16 +24,20 @@
   }
   .about-flex {
     .about-desciption {
-      width: 80%;
+      width: 70%;
       max-width: 1330px;
       margin: auto;
       font-family: "Pilat Extended Book";
       @media screen and (max-width: 768px) {
         width: 80%;
       }
+      @media screen and (min-width: 2400px) {
+        width: 100%;
+      }
+
       .large-text {
         font-size: 1.3rem;
-        line-height: 2.5;
+        line-height: 3;
         letter-spacing: 1.8px;
         width: 100%;
         text-align: center;

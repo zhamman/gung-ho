@@ -223,7 +223,7 @@ const Header = () => {
                 onMouseEnter={onEnter}
                 onMouseLeave={onLeave}
               >
-                Production <div /> Partners
+                Partners
               </Link>
             </div>
             <div className="work-section">

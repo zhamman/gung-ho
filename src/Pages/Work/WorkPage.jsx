@@ -102,7 +102,11 @@ const WorkPage = () => {
             </li>
           </ul>
         </div>
-
+        <div className="mobile-title">
+          <h1>
+            OUR WORKS <FiArrowDownLeft />
+          </h1>
+        </div>
         <div className="render-container">
           {render === "featureFilm" && <FeatureFilm />}
           {render === "tvCommercial" && <TvCommercials />}

@@ -33,10 +33,11 @@
   .work-col {
     position: relative;
     width: 100%;
-    // padding: 0 32px;
+    margin-bottom: 2rem;
     box-sizing: border-box;
-    @media screen and (max-width: 768px) {
-      // padding: 0 16px;
+    @media screen and (min-width: 1920px) {
+      width: 80%;
+      margin: 5rem auto;
     }
     .block {
       cursor: pointer;

@@ -11,7 +11,9 @@ const About = () => {
             Gung-Ho Films is the leading production services company in China
             and Hong Kong. Founded in 2001, Gung-Ho Films has consistently
             provided high-quality support to top film and TV production
-            companies from around the world.
+            companies from around the world. With a smart and dedicated
+            bilingual staff, Gung-Ho provides world-class support to all types
+            and sizes of international productions.
           </p>
         </div>
       </div>
