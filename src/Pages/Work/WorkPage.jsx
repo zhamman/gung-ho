@@ -76,20 +76,20 @@ const WorkPage = () => {
         <div className="render-container">
           {workVideoData.map((vid, i) =>
             render === vid.category || render === "allWork" ? (
-              <div className="work-col" key={vid.title}>
-                <div
-                  href=""
-                  className="block"
-                  onClick={() => {
-                    if (vid.vidlink !== "") {
-                      setVideoPage(vid.link);
-                      setPhotoPage("");
-                    } else if (vid.photoshoot !== "") {
-                      setPhotoPage(vid.link);
-                      setVideoPage("");
-                    }
-                  }}
-                >
+              <div
+                className="work-col"
+                key={vid.title}
+                onClick={() => {
+                  if (vid.vidlink !== "") {
+                    setVideoPage(vid.link);
+                    setPhotoPage("");
+                  } else if (vid.photoshoot !== "") {
+                    setPhotoPage(vid.link);
+                    setVideoPage("");
+                  }
+                }}
+              >
+                <div href="" className="block">
                   <img
                     src={require(`../../media/images/thumbnails/${vid.imgUrl}`)}
                     alt=""

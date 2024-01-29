@@ -88,18 +88,6 @@
     height: 100vh;
     overflow: hidden;
     color: #000;
-    &:before {
-      position: fixed;
-      background-image: url("../media/bg-img/noise.gif");
-      content: "";
-      height: 100%;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      opacity: 0.05;
-      z-index: 0;
-    }
     .links-container {
       width: 93%;
       margin: auto;
