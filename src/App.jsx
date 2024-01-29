@@ -13,7 +13,6 @@ const App = () => {
   let word2 = useRef(null);
   let sub = useRef(null);
   let preload = useRef(null);
-  // let location = useLocation();
 
   useEffect(() => {
     if (preloader === true) {
@@ -27,7 +26,6 @@ const App = () => {
       gsap.to(preload, {
         duration: 1,
         opacity: 0,
-        // height: 0,
         ease: "power3.inOut",
       });
       gsap.to(preload, {
@@ -68,25 +66,22 @@ const App = () => {
 
   return (
     <div>
-      <div>
-        <div className="loader-container">
-          <div className="loader-wrapper absolute" ref={el => (preload = el)}>
-            <h1>
-              {" "}
-              <span ref={el => (word1 = el)}>Gung</span>
-              <span ref={el => (word2 = el)}>-Ho</span>{" "}
-            </h1>
-            <h4 ref={el => (sub = el)}>Films</h4>
-          </div>
+      <div className="loader-container">
+        <div className="loader-wrapper absolute" ref={el => (preload = el)}>
+          <h1>
+            {" "}
+            <span ref={el => (word1 = el)}>Gung</span>
+            <span ref={el => (word2 = el)}>-Ho</span>{" "}
+          </h1>
+          <h4 ref={el => (sub = el)}>Films</h4>
         </div>
-
-        <div className="app-container">
-          <div className="app-scroll">
-            <Router>
-              <Header />
-              <AnimatedRoutes />
-            </Router>
-          </div>
+      </div>
+      <div className="app-container">
+        <div className="app-scroll">
+          <Router>
+            <Header />
+            <AnimatedRoutes />
+          </Router>
         </div>
       </div>
     </div>

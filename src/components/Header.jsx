@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 
 const Header = () => {
@@ -9,8 +8,6 @@ const Header = () => {
   const [active, setActive] = useState({ initial: false, clicked: false });
   const [disabled, setDisabled] = useState(false);
 
-  let tran1 = useRef(null);
-  let tran2 = useRef(null);
   let menu = useRef(null);
   let revealMenu = useRef(null);
   let line1 = useRef(null);
@@ -37,13 +34,17 @@ const Header = () => {
       setColor(false);
     }
   };
-  //   const SubList = () => {};
   useEffect(() => {
-    // changeLogo();
     window.addEventListener("scroll", changeColor);
   });
 
   useEffect(() => {
+    const disableMenu = () => {
+      setDisabled(!disabled);
+      setTimeout(() => {
+        setDisabled(false);
+      }, 1000);
+    };
     disableMenu();
     if (active.clicked === false) {
       //close menu
@@ -82,6 +83,7 @@ const Header = () => {
       staggerReaveal(revealMenu);
       staggerText(line1, line2, line3, line4);
     }
+    // eslint-disable-next-line
   }, [active]);
 
   useEffect(() => {
@@ -95,10 +97,9 @@ const Header = () => {
         css: { display: "none" },
       });
     }
-  }, []);
+  });
 
   const handleMenu = () => {
-    // disableMenu();
     if (active.initial === false) {
       setActive({
         initial: null,
@@ -120,7 +121,6 @@ const Header = () => {
       duration: 0.4,
       height: 0,
       transformOrigin: "right top",
-      // skewY: 4,
       ease: "power3.inOut",
     });
   };
@@ -134,13 +134,6 @@ const Header = () => {
         amount: 0.3,
       },
     });
-  };
-
-  const disableMenu = () => {
-    setDisabled(!disabled);
-    setTimeout(() => {
-      setDisabled(false);
-    }, 1000);
   };
 
   const onEnter = ({ currentTarget }) => {
@@ -177,12 +170,9 @@ const Header = () => {
                   ? "black"
                   : "white",
             }}
-            onClick={() => {
-              {
-                setActive({ clicked: false });
-                scrollToPosition();
-              }
-            }}
+            onClick={() =>
+              active.clicked ? setActive({ clicked: !active.clicked }) : ""
+            }
           >
             Gung-ho films
           </Link>
@@ -194,7 +184,7 @@ const Header = () => {
               scrollToPosition();
             }}
           >
-            <img src={require("../media/images/gung-ho-logo.png")} alt="" />{" "}
+            <img src={require("../media/images/gung-ho-logo.WebP")} alt="" />{" "}
           </Link>
           <div className="menu">
             <button

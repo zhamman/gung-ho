@@ -1,15 +1,22 @@
-import React, { useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Footer.scss";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-import { useState } from "react";
 
 const Footer = () => {
   return (
     <div className="footer-container">
-      <div className="content-container">
+      <div className="footer-wrapper">
+        <div className="logo">
+          <img src={require("../media/images/gung-ho-logo.WebP")} alt="" />
+          Gung-Ho <br /> Films
+        </div>
+        <div className="camera-png">
+          <img src={require("../media/images/fun/camera.WebP")} alt="" />
+        </div>
+        <div className="camera-png2">
+          <img src={require("../media/images/fun/camera.WebP")} alt="" />
+        </div>
         <div className="nav-section">
+          <div className="nav-map-header">Quick Links</div>
           <ul>
             <Link to="/work">Work</Link>
             <Link to="/partners">Partners</Link>
@@ -18,15 +25,12 @@ const Footer = () => {
           </ul>
         </div>
         <div className="email-section">
-          <p>Interested in working with us?</p>
-          <a href="mailto:zhamman14@gmail.com" className="underline">
-            Shoot us an email
+          <a href="mailto:abx@cyz.com" className="underline">
+            Contact Us
           </a>
         </div>
-        <div className="copyright">
-          <p>&copy; Gung-Ho Films 2022</p>
-        </div>
       </div>
+      <p className="copyright-footer">&copy; Gung-Ho Films 2024</p>
     </div>
   );
 };

@@ -1,23 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
+
 .workpage-container {
   min-height: 100vh;
-  padding-top: 80px;
+  padding-bottom: 2rem;
   max-width: 2400px;
+  padding-top: 5rem;
   margin: auto;
   @media screen and (max-width: 768px) {
-    padding-top: 40px;
     margin-bottom: 2rem;
+  }
+  @media screen and (max-width: 400px) {
+    margin-bottom: 0;
+    padding-top: 3rem;
   }
 
   .heading {
     font-size: 1rem;
     text-align: center;
     margin: 2rem;
-    font-family: "Pilat Extended Book";
     @media screen and (max-width: 1080px) {
       font-size: 0.75rem;
-    }
-    @media screen and (max-width: 500px) {
-      display: none;
     }
 
     @media screen and (max-width: 350px) {
@@ -27,134 +29,342 @@
 
   .work-nav {
     transition: all 0.2s ease-in-out;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
       display: none;
     }
     ul {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 2rem 0;
+      column-gap: 2rem;
+      row-gap: 1rem;
+      width: 80%;
+      margin: 2rem auto;
       @media screen and (max-width: 1080px) {
         font-size: 0.75rem;
+        column-gap: 1rem;
       }
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: 870px) {
         font-size: 0.65rem;
+        column-gap: 0.5rem;
       }
       @media screen and (max-width: 768px) {
         font-size: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(60px, 160px));
+        grid-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 100px));
+        grid-gap: 1rem;
       }
 
       li {
-        border-right: 1px solid black;
-        padding: 0 1rem;
+        min-height: 20px;
+        font-size: 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 2px solid black;
+        transition: 0.2s ease-out;
+        color: black;
+        border-radius: 7px;
+        padding: 0.4rem 0.6rem;
         cursor: pointer;
         position: relative;
-        @media screen and (max-width: 600px) {
-          padding: 0 0.3rem;
-        }
-        @media screen and (max-width: 500px) {
-          padding: 0 0.2rem;
-        }
-        &:last-child {
-          border: none;
+        @media screen and (max-width: 1200px) {
+          font-size: 0.5rem;
         }
 
         &:hover {
           color: #c31c28;
+          transform: scale(1.1);
+          background-color: black;
+          color: white;
         }
       }
     }
   }
-  .mobile-title {
-    display: none;
-    @media screen and (max-width: 500px) {
-      display: block;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 0.7rem;
-      font-family: "Pilat Extended Book";
-      margin-top: 2rem;
+  .render-container {
+    display: grid;
+    width: 100%;
+    margin: 1rem auto;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    column-gap: 0rem;
+    @media screen and (max-width: 1080px) {
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
-  .work-col {
-    position: relative;
-    width: 95%;
-    margin: auto;
-    padding: 0 32px;
-    padding-bottom: 2.5rem;
-    padding-top: 2rem;
-    box-sizing: border-box;
-    margin-bottom: 4rem;
     @media screen and (max-width: 768px) {
-      padding: 0 16px;
+      grid-template-columns: repeat(1, 1fr);
     }
-    @media screen and (max-width: 500px) {
-      padding: 0 12px;
-    }
-    .block {
-      display: inline-block;
+    .work-col {
+      height: 100%;
+      width: 100%;
       position: relative;
-      width: 50%;
-      padding: 10px 10px;
-
-      box-sizing: border-box;
-      vertical-align: top;
-      color: #fff;
-      z-index: 4;
-      overflow: hidden;
-      cursor: pointer;
-      &:hover .text {
+      &:hover .text h2 {
         visibility: visible;
-        scale: 1;
+        transform: scale(1.1);
+      }
+      &:hover .block {
+        filter: brightness(30%);
       }
       &:hover img {
-        filter: brightness(30%);
-        // -webkit-text-stroke: #000;
+        transform: scale(1.1);
       }
 
-      @media screen and (max-width: 768px) {
-        width: 100%;
-        margin-bottom: 12px;
-      }
-      @media screen and (max-width: 450px) {
-        padding: 0;
-      }
-
-      .text {
-        visibility: hidden;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 0.2s ease;
-        width: 100%;
-        text-align: center;
-        z-index: 3;
-        font-size: 0.9vw;
-        @media screen and (max-width: 768px) {
-          position: absolute;
-          visibility: hidden;
-        }
-        &:hover img {
-          transform: scale(1.4);
-        }
-      }
-      .image-hover-zoom {
+      .block {
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
+        object-fit: cover;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 12px;
+        }
+        @media screen and (max-width: 450px) {
+          padding: 0;
+        }
+
         img {
           width: 100%;
+          height: 100%;
           aspect-ratio: 16/9;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.2s ease-in-out;
           z-index: 2;
-          &:hover {
-            transform: scale(1.1);
-          }
+        }
+      }
+      .text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        visibility: hidden;
+        color: white;
+        text-align: center;
+        letter-spacing: 2px;
+
+        font-family: "Pilat Extended";
+        h2 {
+          font-size: 1rem;
+          cursor: pointer;
         }
       }
     }
   }
+}
+.video-container {
+  display: none;
+  min-height: 100vh;
+  width: 80%;
+  margin: auto;
+
+  @media screen and (max-width: 425px) {
+    width: 90%;
+  }
+  .video-section {
+    .video-player {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 60%;
+      margin: 3rem auto 0 auto;
+      position: relative;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
+      video {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+    }
+    .text-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      @media screen and (max-width: 425px) {
+        gap: 0.1rem;
+        margin-top: 0.5rem;
+      }
+
+      h4 {
+        font-size: 1.3rem;
+        @media screen and (max-width: 425px) {
+          font-size: 1rem;
+        }
+      }
+      p {
+        font-size: 0.7rem;
+        @media screen and (max-width: 768px) {
+          font-size: 0.6rem;
+        }
+        @media screen and (max-width: 425px) {
+          font-size: 0.6rem;
+        }
+      }
+      .description {
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 768px) {
+          font-size: 0.6rem;
+          flex-direction: column;
+          justify-content: center;
+        }
+        @media screen and (max-width: 425px) {
+          font-size: 0.4rem;
+        }
+      }
+    }
+  }
+}
+
+.photo-work-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  @media screen and(max-width:400px) {
+    margin-top: 0;
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .images {
+    height: 80%;
+    width: 80%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  h4 {
+    margin-top: 0.3rem;
+  }
+  p {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+  }
+  .description {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    p {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.slides-img-section {
+  max-width: 1330px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  h4 {
+    text-align: center;
+    @media screen and (max-width: 450px), screen and (max-height: 500px) {
+      font-size: 0.8rem;
+    }
+    @media screen and (max-width: 360px) {
+      font-size: 0.7rem;
+    }
+    @media screen and (max-height: 300px) {
+      font-size: 0.4rem;
+    }
+  }
+  .director {
+    text-align: center;
+    font-size: 0.8rem;
+    @media screen and (max-width: 450px), screen and (max-height: 500px) {
+      font-size: 0.6rem;
+    }
+    @media screen and (max-width: 360px) {
+      font-size: 0.5rem;
+    }
+    @media screen and (max-height: 300px) {
+      font-size: 0.3rem;
+    }
+  }
+  .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.6rem;
+  }
+  .images {
+    margin: 2rem auto;
+    img {
+      height: 500px;
+      margin-top: 0rem;
+      border-radius: 3px;
+      object-fit: cover;
+      width: 380px;
+      box-shadow: 0px 0px 20px -3px rgba(133, 133, 133, 1);
+      @media screen and (max-width: 600px) {
+        height: 300px;
+      }
+      @media screen and (max-width: 450px), screen and (max-height: 500px) {
+        height: 300px;
+        width: 200px;
+      }
+    }
+  }
+
+  .icon {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    &:hover {
+      color: rgb(97, 96, 96);
+      transform: scale(1.3) translateY(-40%);
+    }
+    @media screen and (max-width: 360px) {
+      right: 5%;
+    }
+  }
+  .icon2 {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    &:hover {
+      color: rgb(97, 96, 96);
+      transform: scale(1.3) translateY(-40%);
+    }
+    @media screen and (max-width: 360px) {
+      left: 5%;
+    }
+  }
+}
+
+.video-container.fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

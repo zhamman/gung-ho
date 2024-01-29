@@ -1,15 +1,12 @@
 .header {
-  // font-family: "Kanit", sans-serif;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   margin: auto;
   width: 100vw;
-  // height: 100vh;
   z-index: 1000;
   font-size: 1rem;
-  // letter-spacing: 2px;
   font-weight: 700;
   color: white;
   transition: all 0.5 ease-in-out;
@@ -28,7 +25,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // padding-top: 0.5rem;
     height: 4rem;
     text-transform: uppercase;
     max-width: 1330px;
@@ -48,7 +44,6 @@
     }
     .contact {
       font-family: "Pilat Extended Book";
-      // font-weight: 500;
     }
     .menu {
       cursor: pointer;
@@ -69,9 +64,6 @@
         @media screen and (max-width: 330px) {
           font-size: 0.5rem;
         }
-        // @media screen and (max-width: 500px) {
-        //   font-size: 0.5rem;
-        // }
       }
     }
   }
@@ -96,20 +88,6 @@
     height: 100vh;
     overflow: hidden;
     color: #000;
-    // transform: translateY(100%);
-    // transition: all 0.3s ease;
-    &:before {
-      position: fixed;
-      background-image: url("../media/bg-img/noise.gif");
-      content: "";
-      height: 100%;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      opacity: 0.05;
-      z-index: 0;
-    }
     .links-container {
       width: 93%;
       margin: auto;
@@ -122,16 +100,13 @@
       position: relative;
       top: 50%;
       letter-spacing: 3px;
-      // left: 50%;
       transform: translateY(-50%);
 
       .work-section {
-        // margin-top: 1rem;
         display: flex;
         flex-direction: column;
       }
       .company-section {
-        // margin-top: 1rem;
         display: flex;
         flex-direction: column;
       }
@@ -143,20 +118,10 @@
       a {
         margin-top: 3rem;
         font-size: 2.5rem;
-        // padding: 0.3rem;
         color: #000;
         display: inline-block;
         position: relative;
         line-height: 2;
-        // transition: all 0.2s ease;
-        // -webkit-text-stroke: 2.4px #000;
-        // -webkit-text-fill-color: transparent;
-        &:hover {
-          -webkit-text-stroke: 2.4px #000;
-          // -webkit-text-fill-color: transparent;
-          // -webkit-text-fill-color: black;
-          // transform: translateX(4px) scale(1.14);
-        }
         @media screen and (max-width: 768px) {
           font-size: 38px;
           &:hover {
@@ -166,8 +131,6 @@
         @media screen and (max-width: 650px), screen and (max-height: 500px) {
           font-size: 25px;
           line-height: 2.3;
-          //-webkit-text-stroke: 0.3px #000;
-          //-webkit-text-fill-color: none;
           color: #000;
           font-weight: 600;
           letter-spacing: 1px;
@@ -192,7 +155,6 @@
   z-index: 10000;
 }
 .transition-layer2 {
-  // display: block;
   position: fixed;
   top: 0;
   bottom: 0;

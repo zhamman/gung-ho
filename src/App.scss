@@ -1,75 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=Kanit:wght@300;400;500;600&family=Michroma&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Mono:wght@100;300;400;500&family=Roboto+Serif:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500&family=Roboto:wght@100;300;400;500&display=swap");
-
 @font-face {
   font-family: "Pilat Extended Book";
-  src: url("./font/PilatExtended-Book.eot");
   src: local("./font/Pilat Extended Book"), local("PilatExtended-Book"),
-    url("./font/PilatExtended-Book.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Book.woff2") format("woff2"),
-    url("./font/PilatExtended-Book.woff") format("woff"),
-    url("./font/PilatExtended-Book.ttf") format("truetype");
+    url("./font/PilatExtended-Book.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Pilat Extended Book";
-  src: url("./font/PilatExtended-Book.eot");
-  src: local("./font/Pilat Extended Book"), local("PilatExtended-Book"),
-    url("./font/PilatExtended-Book.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Book.woff2") format("woff2"),
-    url("./font/PilatExtended-Book.woff") format("woff"),
-    url("./font/PilatExtended-Book.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Pilat Extended";
-  src: url("./font/PilatExtended-Thin.eot");
   src: local("./font/Pilat Extended Thin"), local("PilatExtended-Thin"),
-    url("./font/PilatExtended-Thin.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Thin.woff2") format("woff2"),
-    url("./font/PilatExtended-Thin.woff") format("woff"),
-    url("./font/PilatExtended-Thin.ttf") format("truetype");
+    url("./font/PilatExtended-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Pilat Extended";
-  src: url("./font/PilatExtended-Light.eot");
-  src: local("Pilat Extended Light"), local("PilatExtended-Light"),
-    url("./font/PilatExtended-Light.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Light.woff2") format("woff2"),
-    url("./font/PilatExtended-Light.woff") format("woff"),
-    url("./font/PilatExtended-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Pilat Extended Demi";
-  src: url("./font/PilatExtended-DemiBold.eot");
   src: local("./font/Pilat Extended DemiBold"), local("PilatExtended-DemiBold"),
-    url("./font/PilatExtended-DemiBold.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-DemiBold.woff2") format("woff2"),
-    url("./font/PilatExtended-DemiBold.woff") format("woff"),
-    url("./font/PilatExtended-DemiBold.ttf") format("truetype");
+    url("./font/PilatExtended-DemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Pilat Extended";
-  src: url("./font/PilatExtended-Black.eot");
   src: local("./font/Pilat Extended Black"), local("PilatExtended-Black"),
-    url("./font/PilatExtended-Black.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Black.woff2") format("woff2"),
-    url("./font/PilatExtended-Black.woff") format("woff"),
-    url("./font/PilatExtended-Black.ttf") format("truetype");
+    url("./font/PilatExtended-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 .app-container {
@@ -77,19 +39,6 @@
   margin: 0 auto;
   width: 100vw;
   overflow: hidden;
-
-  &:before {
-    position: fixed;
-    background-image: url("./media/bg-img/noise.gif");
-    content: "";
-    height: 300%;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.03;
-    z-index: -1;
-  }
 }
 
 .loader-wrapper {
@@ -99,8 +48,6 @@
   flex-direction: column;
   font-family: "Pilat Extended";
   font-weight: 900;
-  // -webkit-text-stroke: 1.7px #fff;
-  // -webkit-text-fill-color: transparent;
   background-color: #1e1e1e;
   color: #fff;
   text-transform: uppercase;

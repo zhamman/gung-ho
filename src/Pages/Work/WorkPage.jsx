@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./WorkPage.scss";
 import { FiArrowDownLeft } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../../components/Footer";
+import { VscArrowSmallRight, VscArrowSmallLeft } from "react-icons/vsc";
+import {
+  workNavData,
+  workVideoData,
+  ImageSelect,
+} from "../../data/WorkPageData";
 
 const WorkPage = () => {
   const [render, setRender] = useState("allWork");
-  const location = useLocation().pathname;
+  const [videoPage, setVideoPage] = useState("");
+  const [photoPage, setPhotoPage] = useState("");
 
   useEffect(() => {
     gsap.from(".block", {
-      duration: 1,
+      duration: 0.4,
       scale: 0,
-      delay: 0.1,
+      delay: 0,
       ease: "power3.inOut",
       stagger: {
-        amount: 0.8,
+        amount: 0.2,
       },
     });
   }, [render]);
+
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  }, [videoPage, photoPage]);
 
   return (
     <motion.div
@@ -28,92 +38,71 @@ const WorkPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      {videoPage !== "" && (
+        <Video
+          videoPage={videoPage}
+          setVideoPage={setVideoPage}
+          photoPage={photoPage}
+          setPhotoPage={setPhotoPage}
+        />
+      )}
+      {photoPage !== "" && (
+        <PhotoShoot photoPage={photoPage} setPhotoPage={setPhotoPage} />
+      )}
       <div className="workpage-container">
-        {(location === "/work" || location === "/") && (
-          <div className="heading">
-            <h1>
-              OUR WORKS <FiArrowDownLeft />
-            </h1>
-          </div>
-        )}
-
-        <div className="work-nav">
-          <ul>
-            <li
-              onClick={() => {
-                setRender("allWork");
-              }}
-              style={{
-                color: render === "allWork" ? "#c31c28" : "",
-              }}
-            >
-              All Work
-            </li>
-            <li
-              onClick={() => {
-                setRender("tvCommercial");
-              }}
-              style={{
-                color: render === "tvCommercial" ? "#c31c28" : "",
-              }}
-            >
-              TV Commercials
-            </li>
-            <li
-              onClick={() => {
-                setRender("television");
-              }}
-              style={{
-                color: render === "television" ? "#c31c28" : "",
-              }}
-            >
-              Television
-            </li>
-            <li
-              onClick={() => {
-                setRender("documentary");
-              }}
-              style={{
-                color: render === "documentary" ? "#c31c28" : "",
-              }}
-            >
-              Documentary
-            </li>
-
-            <li
-              onClick={() => {
-                setRender("featureFilm");
-              }}
-              style={{
-                color: render === "featureFilm" ? "#c31c28" : "",
-              }}
-            >
-              Feature Films
-            </li>
-            <li
-              onClick={() => {
-                setRender("photography");
-              }}
-              style={{
-                color: render === "photography" ? "#c31c28" : "",
-              }}
-            >
-              Photography
-            </li>
-          </ul>
-        </div>
-        <div className="mobile-title">
+        <div className="heading">
           <h1>
             OUR WORKS <FiArrowDownLeft />
           </h1>
         </div>
+        <div className="work-nav">
+          <ul>
+            {workNavData.map((navItem, i) => (
+              <li
+                key={navItem.text}
+                onClick={() => {
+                  setRender(navItem.category);
+                }}
+                style={{
+                  color: render === navItem.category ? "white" : "",
+                  backgroundColor: render === navItem.category ? "#000" : "",
+                }}
+              >
+                {navItem.text}
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="render-container">
-          {render === "featureFilm" && <FeatureFilm />}
-          {render === "tvCommercial" && <TvCommercials />}
-          {render === "documentary" && <Documentary />}
-          {render === "photography" && <Photography />}
-          {render === "television" && <Television />}
-          {render === "allWork" && <AllWork />}
+          {workVideoData.map((vid, i) =>
+            render === vid.category || render === "allWork" ? (
+              <div
+                className="work-col"
+                key={vid.title}
+                onClick={() => {
+                  if (vid.vidlink !== "") {
+                    setVideoPage(vid.link);
+                    setPhotoPage("");
+                  } else if (vid.photoshoot !== "") {
+                    setPhotoPage(vid.link);
+                    setVideoPage("");
+                  }
+                }}
+              >
+                <div href="" className="block">
+                  <img
+                    src={require(`../../media/images/thumbnails/${vid.imgUrl}`)}
+                    alt=""
+                  />{" "}
+                </div>
+                <div className="text">
+                  <h2>{vid.title}</h2>
+                </div>
+              </div>
+            ) : (
+              ""
+            )
+          )}
         </div>
       </div>
       <Footer />
@@ -123,490 +112,114 @@ const WorkPage = () => {
 
 export default WorkPage;
 
-const FeatureFilm = () => {
+const Video = ({ videoPage, setVideoPage }) => {
   return (
-    <div className="work-col">
-      <Link to="/work/her" className="block">
-        <div className="text">
-          <h2>her</h2>
-          <p></p>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 0.3 }}
+        className={`video-container ${videoPage !== "" ? "fullscreen" : ""}`}
+      >
+        <div className={`video-section`}>
+          {workVideoData.map((video, i) => {
+            return videoPage === video.link && videoPage !== "" ? (
+              <div className="video-player" key={video.description1}>
+                <video
+                  controls
+                  autoPlay
+                  src={require(`../../media/videos/${video.vidlink}`)}
+                ></video>
+                <div className="text-section">
+                  <h4>{video.title}</h4>
+                  <p>{video.director}</p>
+                  <div className="description">
+                    <p className="prod">{video.description1}</p>
+                    <p className="agency">{video.description2}</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div></div>
+            );
+          })}
         </div>
-        <div className="image-hover-zoom">
-          <img src={require("../../media/images/thumbnails/her.png")} alt="" />{" "}
-        </div>
-      </Link>
-      <Link to="/work/snowden" className="block">
-        <div className="text">
-          <h2>Snowden</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/snowden.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-    </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.1 }}
+          className="next-selection"
+        ></motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
-const TvCommercials = () => {
+const PhotoShoot = ({ photoPage, setPhotoPage }) => {
+  const [slide, setSlide] = useState(0);
+  const length = ImageSelect.length;
+
+  const nextSlide = () => {
+    setSlide(slide === length - 1 ? 0 : slide + 1);
+  };
+  const prevSlide = () => {
+    setSlide(slide === length - 1 ? 0 : slide - 1);
+  };
   return (
-    <div className="work-col">
-      <Link to="/work/adidas1" className="block">
-        <div className="text">
-          <h2>Adidas - Create the Answer</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/adidas.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/ipad" className="block">
-        <div className="text">
-          <h2>Ipad Air</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/ipad.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/samsung" className="block">
-        <div className="text">
-          <h2>Samsung</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/maxresdefault.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/adidas-original" className="block">
-        <div className="text">
-          <h2>Adidas - Originals</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/adidasoriginals.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/pandg" className="block">
-        <div className="text">
-          <h2>P&G Moms</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            // style={{ objectFit: "contain" }}
-            src={require("../../media/images/thumbnails/png.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/xbox" className="block">
-        <div className="text">
-          <h2>Microsoft Xbox</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img src={require("../../media/images/thumbnails/xbox.png")} alt="" />{" "}
-        </div>
-      </Link>
-      <Link to="/work/adidas-billion" className="block">
-        <div className="text">
-          <h2>Adidas - One in a Billion</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            style={{ objectFit: "cover" }}
-            src={require("../../media/images/thumbnails/adidas-onebilliion.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/vodafone" className="block">
-        <div className="text">
-          <h2>Vodafone</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/vodafone.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/citibank" className="block">
-        <div className="text">
-          <h2>Citibank</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/citi.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/lotto-red" className="block">
-        <div className="text">
-          <h2>Danish Lottery - Red Dragon</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            // style={{ objectFit: "contain" }}
-            src={require("../../media/images/redlotto.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-const Documentary = () => {
-  return (
-    <div className="work-col">
-      <Link to="/work/inconvenient-truth" className="block">
-        <div className="text">
-          <h2>An Inconvenient Truth</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/inconvenient.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-const Photography = () => {
-  return (
-    <div className="work-col">
-      <Link to="/work/dior" className="block">
-        <div className="text">
-          <h2>Lady Dior</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/lady-dior.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/vogue" className="block">
-        <div className="text">
-          <h2>Vogue</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/vogue_1.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/annie" className="block">
-        <div className="text">
-          <h2>Annie Liebovitz - Women</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/annieLeb.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/pirelli" className="block">
-        <div className="text">
-          <h2>Pirelli Calendar 2008</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/pirelli-calendar/portrait.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-const Television = () => {
-  return (
-    <div className="work-col">
-      <Link to="/work/better-late-than-never" className="block">
-        <div className="text">
-          <h2>Better Late Than Never</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/betterlate.jpeg")}
-            alt=""
-          />
-        </div>
-      </Link>
-      <Link to="/work/amazing-race" className="block">
-        <div className="text">
-          <h2>Amazing Race</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/amazing_race.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/richkids" className="block">
-        <div className="text">
-          <h2>Rich Kids of Beverly Hills</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/richkids.jpg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/who-do-you-think-you-are" className="block">
-        <div className="text">
-          <h2>Who Do You Think You Are</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/whodoyou.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-const AllWork = () => {
-  return (
-    <div className="work-col">
-      <Link to="/work/better-late-than-never" className="block">
-        <div className="text">
-          <h2>Better Late Than Never</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/betterlate.jpeg")}
-            alt=""
-          />
-        </div>
-      </Link>
-
-      <Link to="/work/adidas1" className="block">
-        <div className="text">
-          <h2>Adidas</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/adidas.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/amazing-race" className="block">
-        <div className="text">
-          <h2>Amazing Race</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/amazing_race.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/her" className="block">
-        <div className="text">
-          <h2>her</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img src={require("../../media/images/thumbnails/her.png")} alt="" />{" "}
-        </div>
-      </Link>
-      <Link to="/work/inconvenient-truth" className="block">
-        <div className="text">
-          <h2>An Inconvenient Truth</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/inconvenient.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/ipad" className="block">
-        <div className="text">
-          <h2>Ipad Air</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/ipad.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/dior" className="block">
-        <div className="text">
-          <h2>Lady Dior</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/lady-dior.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/samsung" className="block">
-        <div className="text">
-          <h2>Samsung</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/maxresdefault.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/richkids" className="block">
-        <div className="text">
-          <h2>Rich Kids of Beverly Hills</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/richkids.jpg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/snowden" className="block">
-        <div className="text">
-          <h2>Snowden</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/snowden.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/vogue" className="block">
-        <div className="text">
-          <h2>Vogue</h2>
-          <p></p>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/vogue_1.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/who-do-you-think-you-are" className="block">
-        <div className="text">
-          <h2>Who Do You Think You Are</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/whodoyou.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/adidas-billion" className="block">
-        <div className="text">
-          <h2>Adidas - One in a Billion</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            style={{ objectFit: "cover" }}
-            src={require("../../media/images/thumbnails/adidas-onebilliion.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/pandg" className="block">
-        <div className="text">
-          <h2>P&G Moms</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            // style={{ objectFit: "contain" }}
-            src={require("../../media/images/thumbnails/png.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/annie" className="block">
-        <div className="text">
-          <h2>Annie Liebovitz - Women</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/annieLeb.jpeg")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/adidas-original" className="block">
-        <div className="text">
-          <h2>Adidas - Originals</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/adidasoriginals.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-      <Link to="/work/vodafone" className="block">
-        <div className="text">
-          <h2>Vodafone</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img
-            src={require("../../media/images/thumbnails/vodafone.png")}
-            alt=""
-          />{" "}
-        </div>
-      </Link>
-
-      <Link to="/work/xbox" className="block">
-        <div className="text">
-          <h2>Microsoft Xbox</h2>
-        </div>
-        <div className="image-hover-zoom">
-          <img src={require("../../media/images/thumbnails/xbox.png")} alt="" />{" "}
-        </div>
-      </Link>
+    <div className="photo-work-page">
+      {workVideoData.map((photo, i) => {
+        return photoPage === photo.link &&
+          photoPage !== "" &&
+          photoPage !== "pirelli" ? (
+          <div className="image-container">
+            <div className="images">
+              <img
+                src={require(`../../media/images/thumbnails/${photo.imgUrl}`)}
+                alt=""
+              />
+            </div>
+            <h4>{photo.title}</h4>
+            <p>{photo.director}</p>
+            <div className="description">
+              <p className="prod">{photo.description1}</p>
+              <p className="agency">{photo.description2}</p>
+            </div>
+          </div>
+        ) : (
+          photoPage === "pirelli" && photoPage === photo.link && (
+            <div className="slides-img-section">
+              <div className="images">
+                {ImageSelect.map((img, index) => {
+                  return (
+                    <div className={index === slide ? "img active" : "img"}>
+                      {index === slide && (
+                        <img
+                          src={require(`../../media/images/pirelli-calendar/${img.src}`)}
+                          alt=""
+                        />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="icon">
+                <VscArrowSmallRight size="50px" onClick={nextSlide} />
+              </div>
+              <div className="icon2">
+                <VscArrowSmallLeft size="50px" onClick={prevSlide} />
+              </div>
+              <h4>Pirelli Calendar 2008</h4>
+              <p className="director">Patrick Demarchelier</p>
+              <div className="description">
+                <p className="prod">CJH Productions</p>
+                <p className="agency">Pirelli Tyres</p>
+              </div>
+            </div>
+          )
+        );
+      })}
     </div>
   );
 };
