@@ -1,47 +1,31 @@
 @font-face {
   font-family: "Pilat Extended Book";
-  src: url("./font/PilatExtended-Book.eot");
   src: local("./font/Pilat Extended Book"), local("PilatExtended-Book"),
-    url("./font/PilatExtended-Book.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Book.woff2") format("woff2"),
-    url("./font/PilatExtended-Book.woff") format("woff"),
-    url("./font/PilatExtended-Book.ttf") format("truetype");
+    url("./font/PilatExtended-Book.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Pilat Extended";
-  src: url("./font/PilatExtended-Thin.eot");
   src: local("./font/Pilat Extended Thin"), local("PilatExtended-Thin"),
-    url("./font/PilatExtended-Thin.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Thin.woff2") format("woff2"),
-    url("./font/PilatExtended-Thin.woff") format("woff"),
-    url("./font/PilatExtended-Thin.ttf") format("truetype");
+    url("./font/PilatExtended-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Pilat Extended Demi";
-  src: url("./font/PilatExtended-DemiBold.eot");
   src: local("./font/Pilat Extended DemiBold"), local("PilatExtended-DemiBold"),
-    url("./font/PilatExtended-DemiBold.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-DemiBold.woff2") format("woff2"),
-    url("./font/PilatExtended-DemiBold.woff") format("woff"),
-    url("./font/PilatExtended-DemiBold.ttf") format("truetype");
+    url("./font/PilatExtended-DemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Pilat Extended";
-  src: url("./font/PilatExtended-Black.eot");
   src: local("./font/Pilat Extended Black"), local("PilatExtended-Black"),
-    url("./font/PilatExtended-Black.eot?#iefix") format("embedded-opentype"),
-    url("./font/PilatExtended-Black.woff2") format("woff2"),
-    url("./font/PilatExtended-Black.woff") format("woff"),
-    url("./font/PilatExtended-Black.ttf") format("truetype");
+    url("./font/PilatExtended-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
 }
