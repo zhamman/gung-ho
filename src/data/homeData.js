@@ -1,21 +1,21 @@
 export const homeWorkData = [
   {
     key: "/work/ipad/home/key",
-    url: "airplane-tix.jpeg",
+    url: "airplane-tix.WebP",
     text1: "Airplane Tickets",
     text2: "Music Video",
     videoUrl: "airplanes-10s.mp4",
   },
   {
     key: "snowden/home/key",
-    url: "snowden.jpeg",
+    url: "snowden.WebP",
     text1: "Snowden",
     text2: "Television",
     videoUrl: "snowden-10s.mp4",
   },
   {
     key: "/work/her/home/key",
-    url: "her.jpeg",
+    url: "her.WebP",
     text1: "her",
     text2: "Feature Film",
     videoUrl: "her-10s.mp4",
@@ -23,21 +23,21 @@ export const homeWorkData = [
 
   {
     key: "adidas-originals/home/key",
-    url: "adidasoriginals.png",
+    url: "adidasoriginals.WebP",
     text1: "Adidas - Originals",
     text2: "Television",
     videoUrl: "originals-10s.mp4",
   },
   {
     key: "/work/amazing-race/home/key",
-    url: "vodafone.png",
+    url: "vodafone.WebP",
     text1: "Vodafone",
     text2: "Television",
     videoUrl: "vodafone-10s.mp4",
   },
   {
     key: "/work/adidas1/home/key",
-    url: "adidas-onebilliion.png",
+    url: "adidas-onebilliion.WebP",
     text1: "Adidas - One In a Billion",
     text2: "TV commercial",
     videoUrl: "one-in-a-b-10s.mp4",
@@ -45,7 +45,7 @@ export const homeWorkData = [
 
   {
     key: "/work/samsung/home/key",
-    url: "maxresdefault.jpeg",
+    url: "maxresdefault.WebP",
     text1: "Samsung",
     text2: "TV commercial",
     videoUrl: "galaxy-s9-10s.mp4",
@@ -53,7 +53,7 @@ export const homeWorkData = [
 
   {
     key: "adidas-create/home/key",
-    url: "adidas.jpeg",
+    url: "adidas.WebP",
     text1: "Adidas - Create The Answer",
     text2: "Television",
     videoUrl: "create-the-ans-10s.mp4",
@@ -61,7 +61,7 @@ export const homeWorkData = [
 
   {
     key: "pandg/home/key",
-    url: "png.png",
+    url: "png.WebP",
     text1: "P & G Moms",
     text2: "Television",
     videoUrl: "pandg-10s.mp4",
@@ -70,51 +70,51 @@ export const homeWorkData = [
 
 export const homePartnersData = [
   {
-    link: "art-partner.png",
+    link: "art-partner.WebP",
     key: "art-partner-home-key",
   },
   {
-    link: "Anonymous-content.png",
+    link: "Anonymous-content.WebP",
     key: "Anonymous-content-home-key",
   },
   {
-    link: "Believe-media-logo.png",
+    link: "Believe-media-logo.WebP",
     key: "Believe-media-logo-home-key",
   },
   {
-    link: "missing+pieces+logo.png",
+    link: "missing+pieces+logo.WebP",
     key: "missing+pieces+logo-home-key",
   },
   {
-    link: "partizanlogo.png",
+    link: "partizanlogo.WebP",
     key: "partizanlogo-home-key",
   },
   {
-    link: "Pulse-films.png",
+    link: "Pulse-films.WebP",
     key: "Pulse-films-home-key",
   },
   {
-    link: "tool-logo.png",
+    link: "tool-logo.WebP",
     key: "tool-logo-home-key",
   },
   {
-    link: "radicalmedia.png",
+    link: "radicalmedia.WebP",
     key: "radicalmedia-home-key",
   },
   {
-    link: "stink-logo.png",
+    link: "stink-logo.WebP",
     key: "stink-logo-home-key",
   },
   {
-    link: "SMUGGLER_Logo.png",
+    link: "SMUGGLER_Logo.WebP",
     key: "SMUGGLER_Logo-home-key",
   },
   {
-    link: "pretty-bird.png",
+    link: "pretty-bird.WebP",
     key: "pretty-bird-home-key",
   },
   {
-    link: "Art+commerce.png",
+    link: "Art+commerce.WebP",
     key: "Art+commerce-home-key",
   },
 ];

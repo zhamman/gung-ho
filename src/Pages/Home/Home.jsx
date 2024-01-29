@@ -53,7 +53,7 @@ const Home = ({ slides }) => {
                 <div className="mobile-render-home">
                   <h1>Gung-Ho Films</h1>
                   <img
-                    src={require(`../../media/images/nightlyf-bg.jpg`)}
+                    src={require(`../../media/images/nightlyf-bg.WebP`)}
                     alt=""
                   />
                 </div>
@@ -75,7 +75,7 @@ const About = () => {
     <div className="about-background">
       <div className="about-container">
         <div className="about-flex">
-          <img src={require(`../../media/images/fun/film.png`)} alt="" />
+          <img src={require(`../../media/images/fun/film.WebP`)} alt="" />
           <div className="about-desciption">
             <p className="large-text">
               <span className="red">We are Gung-ho Films,</span> the leading

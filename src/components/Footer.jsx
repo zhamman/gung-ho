@@ -6,14 +6,14 @@ const Footer = () => {
     <div className="footer-container">
       <div className="footer-wrapper">
         <div className="logo">
-          <img src={require("../media/images/gung-ho-logo.png")} alt="" />
+          <img src={require("../media/images/gung-ho-logo.WebP")} alt="" />
           Gung-Ho <br /> Films
         </div>
         <div className="camera-png">
-          <img src={require("../media/images/fun/camera.png")} alt="" />
+          <img src={require("../media/images/fun/camera.WebP")} alt="" />
         </div>
         <div className="camera-png2">
-          <img src={require("../media/images/fun/camera.png")} alt="" />
+          <img src={require("../media/images/fun/camera.WebP")} alt="" />
         </div>
         <div className="nav-section">
           <div className="nav-map-header">Quick Links</div>

@@ -184,7 +184,7 @@ const Header = () => {
               scrollToPosition();
             }}
           >
-            <img src={require("../media/images/gung-ho-logo.png")} alt="" />{" "}
+            <img src={require("../media/images/gung-ho-logo.WebP")} alt="" />{" "}
           </Link>
           <div className="menu">
             <button

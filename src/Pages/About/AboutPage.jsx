@@ -5,17 +5,17 @@ import Footer from "../../components/Footer";
 const AboutPage = () => {
   const aboutPageData = [
     {
-      imgUrl: "AmandaBi.png",
+      imgUrl: "AmandaBi.WebP",
       name: "Amanda Bi",
       position: "Founder",
     },
     {
-      imgUrl: "LucyLu.png",
+      imgUrl: "LucyLu.WebP",
       name: "Lucy Lu",
       position: "Exec Producer",
     },
     {
-      imgUrl: "MichaelMcDermott.png",
+      imgUrl: "MichaelMcDermott.WebP",
       name: "Michael Mcdermott",
       position: "Exec Producer",
     },
